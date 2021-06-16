@@ -6,6 +6,7 @@ const sauceRoutes = require("./routes/sauce");
 const userRoutes = require("./routes/user");
 
 const rateLimit = require("express-rate-limit");
+const helmet = require("helmet");
 
 const app = express();
 
@@ -41,5 +42,7 @@ app.use("/api/sauces", sauceRoutes);
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 app.use(rateLimit());
+
+app.use(helmet());
 
 module.exports = app;
