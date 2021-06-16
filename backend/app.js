@@ -5,6 +5,8 @@ const path = require("path");
 const sauceRoutes = require("./routes/sauce");
 const userRoutes = require("./routes/user");
 
+const rateLimit = require("express-rate-limit");
+
 const app = express();
 
 require("dotenv").config();
@@ -33,7 +35,11 @@ app.use((req, res, next) => {
 app.use(express.json());
 
 app.use("/api/auth", userRoutes);
+
 app.use("/api/sauces", sauceRoutes);
+
 app.use("/images", express.static(path.join(__dirname, "images")));
+
+app.use(rateLimit());
 
 module.exports = app;
