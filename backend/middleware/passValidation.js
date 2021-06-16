@@ -1,7 +1,7 @@
-const schema = require("../models/password");
+const pass = require("../models/password");
 
 module.exports = (req, res, next) => {
-    if (!schema.validate(req.body.password)) {
+    if (!pass.validate(req.body.password)) {
         res.status(401).json({
             error: "Password too weak !",
         });
