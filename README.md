@@ -1,6 +1,6 @@
 ## So Peckoko
 
-Read this in other languages : [ENGLISH](https://github.com/Zlastaneur/StanleyDefer_6_01062021/blob/dev/README.en.md)
+Read this in other languages : [ENGLISH](https://github.com/Zlastaneur/StanleyDefer_6_01062021/blob/main/README.en.md)
 
 Pour faire fonctionner le projet, vous devez installer :
 
@@ -18,5 +18,5 @@ Pour avoir accès au serveur de développement :
 
 ## Variables d'environnement
 
--   Renommer le fichier '.env.prod' dans le backend en '.env'
+-   Dans le backend, renommer le fichier '.env.prod' en '.env'
 -   Remplacer les champs existants par des champs valides

@@ -74,23 +74,23 @@ exports.likeSauce = (req, res, next) => {
                 }
                 return Sauce.updateOne({ _id: req.params.id }, update)
                     .then(() => res.status(200).json({ message }))
-                    .catch((error) => res.status(400).json({ error }));
+                    .catch((error) => res.status(500).json({ error }));
             }
 
             if (likedOrDisliked) {
                 let message = "";
                 let update = {};
                 if (isLiked) {
-                    message = "Now Liked";
+                    message = "Like Canceled";
                     update = { $pull: { usersLiked: userId }, $inc: { likes: -1 } };
                 } else if (isDisliked) {
-                    message = "Now Disliked";
+                    message = "Dislike Canceled";
                     update = { $pull: { usersDisliked: userId }, $inc: { dislikes: -1 } };
                 }
                 return Sauce.updateOne({ _id: req.params.id }, update)
                     .then(() => res.status(200).json({ message }))
-                    .catch((error) => res.status(400).json({ error }));
+                    .catch((error) => res.status(500).json({ error }));
             }
         })
-        .catch((error) => res.status(400).json({ error }));
+        .catch((error) => res.status(500).json({ error }));
 };
